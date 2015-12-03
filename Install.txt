@@ -1,0 +1,46 @@
+#===============================================================================
+# This is an expansion of the instructions found at:
+# - https://github.com/hakimel/reveal.js/#installation
+#-------------------------------------------------------------------------------
+cd ~/Downloads/ &&
+wget https://nodejs.org/dist/v4.2.2/node-v4.2.2-linux-x64.tar.gz &&
+tar -xzf node-v4.2.2-linux-x64.tar.gz &&
+sudo mkdir -p /usr/lib/node &&
+sudo mv node-v4.2.2-linux-x64 /usr/lib/node/ &&
+cd /usr/lib/node &&
+sudo rm -f node-current &&
+sudo ln -s node-v4.2.2-linux-x64 node-current
+#
+# - AND/OR -
+#
+cd ~/Downloads/ &&
+wget https://nodejs.org/dist/v5.1.0/node-v5.1.0-linux-x64.tar.gz &&
+tar -xzf node-v5.1.0-linux-x64.tar.gz &&
+sudo mkdir -p /usr/lib/node &&
+sudo mv node-v5.1.0-linux-x64 /usr/lib/node/ &&
+cd /usr/lib/node &&
+sudo rm -f node-current &&
+sudo ln -s node-v5.1.0-linux-x64 node-current
+#-------------------------------------------------------------------------------
+cd /usr/bin &&
+sudo rm -f node npm &&
+sudo ln -s ../lib/node/node-current/bin/node &&
+sudo ln -s ../lib/node/node-current/bin/npm
+#-------------------------------------------------------------------------------
+sudo npm update -g npm &&
+sudo npm install -g grunt-cli &&
+cd /usr/bin &&
+sudo rm -f grunt &&
+sudo ln -s ../lib/node/node-current/bin/grunt
+#-------------------------------------------------------------------------------
+cd ~/Projects/ &&
+git clone https://github.com/hakimel/reveal.js.git &&
+cd ~/Projects/reveal.js/ &&
+sudo npm install &&
+grunt serve
+#-------------------------------------------------------------------------------
+# This should open http://localhost:8000 in your browser.
+# In a reveal.js presentation hit 's' to open a new frame with speaker notes.
+# Move the tab with the main presentation to the presentation monitor.
+# In Chrome hit F11 to take the current tab to full screen.
+#===============================================================================
