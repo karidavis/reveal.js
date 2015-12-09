@@ -15,7 +15,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
         <link rel="stylesheet" href="css/reveal.css">
-        <link rel="stylesheet" href="css/theme/moon.css" id="theme">
+        <link rel="stylesheet" href="css/theme/black.css" id="theme">
 
         <!-- Code syntax highlighting -->
         <link rel="stylesheet" href="lib/css/zenburn.css">
@@ -45,180 +45,94 @@
                 <section>
                     <h2>What is Repose?</h2>
 
-                    <h2>More importantly, what can it do for you as a developer?</h2>
+                    <h2>How can it help you deliver faster?</h2>
 
-                    <p>Bill Scheidegger</p>
+                    <p>Repose Development Team</p>
 
-                    <p>Visit our website:<a href="http://www.openrepose.org">www.openrepose.org</a></p>
+                    <p>Visit our website: <a href="http://www.openrepose.org">www.openrepose.org</a></p>
 
-                    <p>December, 2015</p>
-                </section>
+                 </section>
 
                 <section>
-                    <h2>Who is this guy?</h2>
+                    <h6>Agenda</h6>
                     <ul>
-                        <li>I'm a Software Developer at Rackspace currently assigned to the open source Repose
-                            project.
-                        </li>
-                        <li>I have almost two decades of professional experience in Software and Systems design.</li>
-                        <li>Prior to joining Rackspace I worked primarily on Iridium Based Friendly Force Tracking
-                            Solutions.
-                        </li>
-                        <li>Before that I served eight years active duty in the USAF.</li>
+                        <li>Introduction and Overview </li>
+                        <li>2015 Features </li>
+                        <li>Authentication/Authorization</li>
+                        <li>User Access Events</li>
+                        <li>Rate Limiting </li>
+                        <li>API Coverage </li>
+                        <li>Repose Performance & Scaling </li>
+                        <li>What's Coming in 2016 </li>
+                    </ul>
+                </section>
+
+
+                <section>
+                    <h2>Team Introduction</h2>
+                    <ul>
+                        <li>Kari Davis - Dev Mgr/Product Mgr</li>
+                        <li>Adrian George - Tech Lead </li>
+                        <li>Damien Johnson - Developer</li>
+                        <li>Mario Lopez - Developer</li>
+                        <li>Bill Scheidegger - Developer</li>
+                        <li>Jenny Vo - QE</li>
+                        <li>Jorge Williams - Architect</li>
+                        <li>3 in Austin, 4 @ the Castle</li>
                     </ul>
                     <aside class="notes">
                         <ul>
                             <li>
-                                I first worked with Java in 1997 doing Y2K conversions of CGI scripts into Servlets.
+                                At the Castle, we sit over near Nebops.  In Austin, we sit by the product conference rooms in the back.
                             </li>
                         </ul>
                     </aside>
                 </section>
 
+
                 <section>
-                    <h2>Let’s start with what some developers have had to say about Repose…</h2>
+                    <h2>Repose Product Overview</h2>
+                    <p>Repose is a Reverse Proxy built on JEE Servlet Filters.</p>
                     <ul>
-                        <li>
-                            "Repose is pluggable and allows us to build custom functionality quickly and easy."
-                        </li>
-                        <li>
-                            "Repose saved my a$$ because it already handled a security vulnerability."
-                        </li>
-                        <li>
-                            "Repose saved me like 3 to 4 weeks of work!"
-                        </li>
-                        <li>
-                            An External Cisco Contributor: "…there was a whole team of people trying to do the same
-                            same thing for about a year before they gave up and started using Repose."
-                        </li>
+                        <li>Reusable features that <u>save time</u> in development</li>
+                        <li><u>Faster product deliveries</u> with templated configs</li>
+                        <li>A <u>layer of abstraction</u> from underlying systems</li>
+                        <li>A product that is <u>Battle Tested</u></li>
+                        <li>A system with <u>Proven Performance</u></li>
+                        <li>An open source, <u>Racker supported</u> product</li>
                     </ul>
                     <aside class="notes">
                         <ul>
-                            <li>Lots of folks using us, but some don't want to be associated.</li>
-                            <li>We are Open Source and do accept pull requests.</li>
-                        </ul>
-                    </aside>
-                </section>
-
-                <section>
-                    <h1>Why are developers saying these things?</h1>
-                </section>
-
-                <section>
-                    <h1>What is this Repose thing anyway?</h1>
-                </section>
-
-                <section>
-                    <h2>Repose is a Reverse Proxy built on J2EE Servlet Filters, providing:</h2>
-                    <ul>
-                        <li>Reusable features that save devs time in development</li>
-                        <li>Faster product deliveries with easily templated configs</li>
-                        <li>A layer of abstraction from underlying systems</li>
-                        <li>A product that is Battle Tested</li>
-                        <li>A system with Proven Performance</li>
-                        <li>An open source, <strong>Racker</strong> supported product</li>
-                    </ul>
-                    <aside class="notes">
-                        <ul>
-                            <li>
-                                Some use Repose to abstract out one or two common tasks instead of copy/pasting them.
-                            </li>
+                            <li>Some use Repose to abstract out one or two common tasks instead of developing them
+                                team by team and potentially coming out with different solutions.</li>
                             <li>Internally, DevOps have basic Chef, Puppet, and Ansible templates.</li>
-                            <li>
-                                We have our own <a href="http://repo.openrepose.org/">RPM and Deb repository</a> that
-                                can be added for easy installation
-                            </li>
+                            <li>We have our own <a href="http://repo.openrepose.org/">RPM and Deb repository</a> that
+                                can be added for easy installation</li>
+                            <li>We run on most platforms: many linux, windows, mac</li>
                         </ul>
                     </aside>
                 </section>
 
-                <section>
-                    <h2>Development without Repose</h2>
-                    <img data-src="./img/NoRepose.png"
-                         alt="Process without Repose">
-                    <aside class="notes">
-                        <ul>
-                            <li>Without Repose every Origin Service has to code it's own.</li>
-                            <li>OR copy/paste</li>
-                            <li>OR create libraries</li>
-                        </ul>
-                    </aside>
-                </section>
 
                 <section>
-                    <a href="http://docs.openstack.org/icehouse/training-guides/content/associate-getting-started.html">
-                        OpenStack Figure 1.9. Logical diagram
-                    </a>
-                    <img data-src="./img/openstack-arch-havana-logical-v1.jpg"
-                         alt="OpenStack Logical Diagram (Fig 1.9)">
-                    <aside class="notes">
-                        <ul>
-                            <li>Compute</li>
-                            <li>Keystone (Identity)</li>
-                            <li>Block Storage (Cinder)</li>
-                            <li>Billing</li>
-                            <li>Logging/Events (Cloud Feeds)</li>
-                        </ul>
-                    </aside>
-                </section>
-
-                <section>
-                    <h2>Development with Repose</h2>
-                    <img data-src="./img/WithRepose.png"
-                         alt="Process with Repose">
-                    <aside class="notes">
-                        <ul>
-                            <li>Repose becomes the reusable library.</li>
-                            <li>And it has template-able configs</li>
-                        </ul>
-                    </aside>
-                </section>
-
-                <section>
-                    <h2>Repose is a Layer of Abstraction</h2>
-                    <img data-src="./img/Layers.png"
-                         alt="The layers of Repose">
-                    <aside class="notes">
-                        <ul>
-                            <li>
-                                Through this abstraction we can modify Repose or it's configs and have little or no
-                                on the Origin Service.
-                            </li>
-                        </ul>
-                    </aside>
-                </section>
-
-                <section>
-                    <h2>Repose Offers a Core Set of Filters</h2>
-                    <img data-src="./img/Basic.png"/>
+                    <h2>Repose Filters</h2>
+                    <img data-src="./img/ReposeOS.png"/>
                     <table>
                         <thead>
                         <tr>
-                            <th>
-                                <a href="https://repose.atlassian.net/wiki/display/REPOSE/Basic+authentication">
-                                    Authentication
-                                </a>
-                            </th>
-                            <th>
-                                <a href="https://repose.atlassian.net/wiki/display/REPOSE/Distributed+rate+limiting">
-                                    Rate Limiting
-                                </a>
-                            </th>
-                            <th>
-                                <a href="https://repose.atlassian.net/wiki/display/REPOSE/Request-response+modification+filters">
-                                    Req/Resp Mods
-                                </a>
-                            </th>
+                            <th>Authentication</th>
+                            <th>Rate Limiting</th>
+                            <th>Req/Resp Mods</th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr>
-                            <td>Keystone v2</td>
-                            <td>By IP</td>
+                            <td>Keystone</td>
+                            <td>By IP, IPs</td>
                             <td>Add/Strip/Modify hdr</td>
                         </tr>
                         <tr>
-                            <td>Keystone v3</td>
+                            <td>RBAC</td>
                             <td>By Role</td>
                             <td>Content Translation</td>
                         </tr>
@@ -231,37 +145,69 @@
                     </table>
                     <aside class="notes">
                         <ul>
-                            <li>Toolbox full of tools</li>
-                            <li>Box full of building blocks</li>
+                            <li>Repose sits in front of the origin service and is configured by the OS team.</li>
+                            <li>Filters can be layered and the request, later the response goes through the filter chain one by one.</li>
+                            <li>The system model defines the filter chain and requests get headers added to help the next filter in the chain.</li>
+                            <li>Repose offers a layer of abstraction. If we wanted to change out the identity back end, it would be configs in Repose and not development on the OS dev team.</li>
                         </ul>
                     </aside>
                 </section>
 
+
                 <section>
-                    <h2>Repose as an API Manager</h2>
-                    <ul>
-                        <li>
-                            <a href="https://repose.atlassian.net/wiki/display/REPOSE/API+Validation+filter">
-                                API Validator
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://repose.atlassian.net/wiki/display/REPOSE/Simple+RBAC+filter">
-                                Simple Role Based Access Control (RBAC)
-                            </a>
-                        </li>
-                    </ul>
+                    <h2>Recent Features</h2>
+                        <ul>
+                            <li>Valkyrie Dedicated Auth</li>
+                            <li>API Coverage Handler</li>
+                            <li>Tracing Header</li>
+                            <li>Log4j 2x Upgrade</li>
+                            <li>IRI Validator</li>
+                            <li>CORS Header support</li>
+                            <li>Keystone v2v2 rewrite</li>
+                            <li>Rate Limit by Multiple Groups</li>
+                        </ul>
                     <aside class="notes">
                         <ul>
-                            <li>API Checker</li>
-                            <li>WADL Tools</li>
+                            <li>Valkryie talks to EPS and offers caching on top of EPS. Repose also caches, minimizing calls if cache is still valid.</li>
+                            <li>With API Coverage, you have the ability to generate a state machine of method calls a request hops through. Test Coverage as well.</li>
+                            <li>Tracing header allows you to tie all the logs of a request back to a single request via the x-trans-id header.</li>
+                            <li>Log4J2x</li>
+                            <li>IRI Validator allows the request to be rejected based on invalid IRI thus ensuring your OS won't choke on an invalid URI </li>
+                            <li>CORS Header - Repose now supports cross origin resource sharing. </li>
+                            <li>Keystone v2v2 rewrite for maintainability and performance. </li>
+                            <li>Rate Limiting how supports multiple groups and a new filter allows you to control the map to xppuser or xppgroups.</li>
+                            <li></li>
                         </ul>
                     </aside>
                 </section>
 
+
                 <section>
-                    <h2>Repose Cloud Auditing Data Federation</h2>
-                    <img data-src="./img/UserAccessEvents500.png"
+                    <h2>Repose and Authentication </h2>
+                    <ul>
+                        <li>AuthN</li>
+                        <ul>
+                            <li>Impersonation Behavior</li>
+                            <li>Racker Tokens</li>
+                        </ul>
+                            <li>AuthZ</li>
+                            <li>Valkyrie for Dedicated Auth</li>
+                                <ul>
+                                    <li>Account Admins</li>
+                                    <li>List Culling</li>
+                                </ul>
+                            <li>RBAC</li>
+                        <ul>
+                            <li>Validator</li>
+                            <li>Simple RBAC</li>
+                        </ul>
+                    </ul>
+                </section>
+
+
+                <section>
+                    <h4>Repose User Access Events</h4>
+                    <img data-src="./img/UserAccessEvents.png"
                          alt="CADF through HERP and DERP"/>
                     <aside class="notes">
                         <ul>
@@ -273,100 +219,37 @@
                 </section>
 
                 <section>
-                    <h2>These aren't just your parent's Filters.</h2>
+                    <h2>Repose Rate Limiting</h2>
+
+                     <img data-src="./img/RateLimitBig.png"
+                              alt="Rate Limiting Config"/>
+                </section>
+
+                <section>
+                    <h2>API Coverage Documentation</h2>
+
                     <ul>
-                        <li>The Filters have a little extra awareness and reliance on the Context.</li>
-                        <li>
-                            The Context provides special services:
-                            <ul>
-                                <li>
-                                    <a href="https://repose.atlassian.net/wiki/display/REPOSE/Datastores">
-                                        DataStore
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://repose.atlassian.net/wiki/display/REPOSE/HTTP+Connection+Pool+service">
-                                        HTTP Connection Pooling
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://repose.atlassian.net/wiki/display/REPOSE/Response+Messaging+service">
-                                        Centralized Response Modification
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
+                        <li>Uses Graphviz or a similar visualization tool  </li>
+                        <li>When API Validator enable-api-coverage is true, API Validator will capture your application states </li>
+                        <li>Run the visualization tool using the .dot file created above </li>
+                        <li>Get the API Coverage graphic </li>
                     </ul>
-                    <aside class="notes">
-                        <ul>
-                            <li>
-                                DataStore
-                                <ul>
-                                    <li>Local OR Distributed</li>
-                                    <li>Currently only uses Ehcache</li>
-                                    <li>Pure JSR-107 on backlog (swapping)</li>
-                                </ul>
-                            </li>
-                            <li>
-                                HTTP Connection Pooling
-                                <ul>
-                                    <li>Individual settings</li>
-                                    <li>Supports special cases (e.g. long timeout)</li>
-                                    <li>Default is one pool</li>
-                                </ul>
-                            </li>
-                            <li>
-                                Centralized Response Modification
-                                <ul>
-                                    <li>Provides consistent access to the Context for creating Response messages</li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </aside>
+
+                    <img data-src="./img/APICvg.png"/>
+
                 </section>
 
+
                 <section>
-                    <h2>Repose Safety Features</h2>
-
-                    <p>
-                        <strong>Denial of Service</strong> attacks attempt to overwhelm the origin service with a deluge
-                        of
-                        traffic and ultimately your server becomes unreachable to any traffic.
-                    </p>
-
-                    <p>
-                        <strong>Man in the Middle</strong> attacks take advantage of encryption vulnerabilities for the
-                        sake
-                        of rendering your service inoperable.
-                    </p>
-
-                    <p><img data-src="./img/Attack.png"></p>
-                    <aside class="notes">
-                        <ul>
-                            <li>
-                                Repose Rate Limiting protects the Origin Service from repeated requests that could
-                                overwhelm the OS.
-                            </li>
-                            <li>
-                                Repose Caching protects dependent services, such as Keystone (Identity) through
-                                aggressive caching of previous responses.
-                            </li>
-                            <li>
-                                Repose makes use of configurable SSL encryption to ensure traffic going through Repose
-                                is secure from man in the middle attacks.
-                            </li>
-                            <li>
-                                Repose Translation filter prevents
-                                <a href="https://repose.atlassian.net/wiki/display/REPOSE/Prevent+XML+bomb+attacks">
-                                    XML attacks.
-                                </a>
-                            </li>
-                        </ul>
-                    </aside>
+                    <h2>A Real API Coverage Graphic</h2>
+                    <img data-src="./img/URIState.png"/>
+                    <img data-src="./img/APICvgComplex.png"/>
                 </section>
 
+
                 <section>
-                    <h2>Repose performance numbers on Rackspace Performance 2GB VM</h2>
+                    <h2>Repose Performance</h2>
+                    <p>Tested on a Rackspace Performance 2GB VM</p>
                     <table>
                         <thead>
                         <tr>
@@ -392,6 +275,9 @@
                         The internal Rackspace Keystone Identity Provider sees ~1000 rps.
                         We test double that to ensure Repose will support their highest traffic service.
                     </p>
+                    <p>
+                        Repose scales <b>Horizontally</b> and <b>Vertically</b>.
+                    </p>
                     <aside class="notes">
                         <ul>
                             <li>
@@ -404,102 +290,50 @@
                 </section>
 
                 <section>
-                    <h2>Misc Interesting Facts…</h2>
+                    <h2>Additional Features</h2>
                     <ul>
                         <li>
-                            Repose has been architected in a way that supports many platforms - runs in a jvm in front
-                            of apps in many languages.
-                        </li>
-                        <li>Scalable horizontally - multi-nodel</li>
-                        <li>Supports pluggable, custom filters… WSGI/Jython bridge in the works with Jim Baker</li>
-                        <li>
-                            Repose is the authorization component for Identity. Identity provides the data, Repose
-                            enforces the policy.
+                            <b>DataStore</b>
+                            <ul>
+                                <li>Local OR Distributed</li>
+                                <li>Currently only uses Ehcache</li>
+                                <li>Pure JSR-107 on backlog (swapping)</li>
+                            </ul>
                         </li>
                         <li>
-                            You can switch out the Identity Provider (IdP) backend by switching Repose filters/configs.
+                            <b>HTTP Connection Pooling</b>
+                            <ul>
+                                <li>Is configurable</li>
+                                <li>Supports special cases (e.g. long timeout)</li>
+                                <li>Default is one pool</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <b>Centralized Response Modification</b>
+                            <ul>
+                                <li>Provides consistent access to the Context for creating Response messages</li>
+                            </ul>
                         </li>
                     </ul>
-                    <aside class="notes">
-                        <ul>
-                            <li>Horizontal scaling allows for more complex configurations to maintain high throughput.</li>
-                        </ul>
-                    </aside>
                 </section>
 
                 <section>
-                    <h2>More on the Repose Team</h2>
+                    <h2>Future Features</h2>
                     <ul>
-                        <li>Small, close knit, highly motivated team</li>
-                        <li>Expertise in adding complex business logic with performance in mind</li>
-                        <li>Cares deeply about code quality, test coverage, and Agile process</li>
-                        <li>Live Fanatical Support through Repose Ninja activities</li>
+                        <li>Java8/Scala 2.11 Upgrade</li>
+                        <li>Repose Admin Tools</li>
+                        <li>Metrics Upgrade</li>
+                        <li>Versioned Docs</li>
+                        <li>Servlet Spec Compliance</li>
+                        <li>Phone Home Service</li>
+                        <li>Seamless Experience feature work</li>
+                        <li>Identity feature work</li>
+                        <li>Self Validating Tokens</li>
                     </ul>
                 </section>
 
                 <section style="text-align: left;">
-                    <h2>THE END</h2>
-
-                    <h3>
-                        <a href="https://repose.atlassian.net/wiki/display/REPOSE/Contact+us">
-                            Contact the Repose team at:
-                        </a>
-                    </h3>
-                    <ul>
-                        <li>
-                            Leave comments at the bottom of any
-                            <a href="https://wiki.openrepose.org">Repose Wiki page</a>.
-                        </li>
-                        <li>
-                            Submit questions by clicking on the
-                            <a href="https://repose.atlassian.net/wiki/questions">Questions button in Wiki page</a>
-                            headers.
-                        </li>
-                        <li>Join us on Freenode IRC at Channel #repose (irc.freenode.net:6667/#repose).</li>
-                        <li>
-                            Join our mailing list at
-                            <a href="http://lists.openrepose.org/mailman/listinfo">lists.openrepose.org</a>.
-                        </li>
-                        <li>
-                            Email at
-                            <a href="mailto:ReposeCore@Rackspace.com?Subject=SAT JUG Dec2015 Questions" target="_top">
-                                ReposeCore@Rackspace.com
-                            </a>.
-                        </li>
-                    </ul>
-                    <h4>Contact me at:</h4>
-                    <ul>
-                        <li>
-                            <a href="mailto:Bill.Scheidegger@Rackspace.com?Subject=SAT JUG Dec2015 Questions"
-                               target="_top">
-                                Bill.Scheidegger@Rackspace.com
-                            </a>
-                        </li>
-                        <li>
-                            <a href="mailto:William.Scheidegger@GMail.com?Subject=SAT JUG Dec2015 Questions"
-                               target="_top">
-                                William.Scheidegger@GMail.com
-                            </a>
-                        </li>
-                    </ul>
-                </section>
-
-                <section>
-                    <h2>This is the slide title</h2>
-                    <ul>
-                        <li>
-                            This is the first bullet
-                        </li>
-                    </ul>
-                    <p>
-                        <img data-src="./img/repose-64.png"
-                             alt="Repose Narwal">
-                    </p>
-                    <aside class="notes">
-                        <ul>
-                            <li>These are some notes.</li>
-                        </ul>
-                    </aside>
+                    <h2><b>THE END</b></h2>
                 </section>
             </div>
         </div>
